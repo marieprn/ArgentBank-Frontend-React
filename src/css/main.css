@@ -276,6 +276,22 @@ body {
   color: #fff;
 }
 
+.edit-name-form {
+  margin-top: 1rem;
+}
+
+.edit-name-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.error-text {
+  color: red;
+  margin-top: 0.5rem;
+}
+
 @media (min-width: 720px) {
   .account {
     flex-direction: row;

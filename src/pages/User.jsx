@@ -1,17 +1,75 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserName } from "../features/auth/authSlice";
 
 export default function User() {
+  const dispatch = useDispatch();
+  const { user, isLoading, error } = useSelector((state) => state.auth);
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const openEdit = () => {
+    setUserName(user?.userName || "");
+    setIsEditing(true);
+  };
+
+  const cancelEdit = () => {
+    setIsEditing(false);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await dispatch(updateUserName(userName));
+    if (updateUserName.fulfilled.match(res)) {
+      setIsEditing(false);
+    }
+  };
+
   return (
     <div className="main bg-dark">
       <div className="header">
         <h1>
           Welcome back
           <br />
-          Tony Jarvis!
+          {user ? `${user.firstName} ${user.lastName} (${user.userName})!` : "User!"}
         </h1>
-        <button className="edit-button" type="button">
-          Edit Name
-        </button>
+
+        {!isEditing ? (
+          <button className="edit-button" type="button" onClick={openEdit}>
+            Edit Name
+          </button>
+        ) : (
+          <form onSubmit={handleSubmit} className="edit-name-form">
+            <div className="input-wrapper">
+              <label htmlFor="userName">User name</label>
+              <input
+                id="userName"
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                required
+              />
+            </div>
+
+            {error ? <p className="error-text">{error}</p> : null}
+
+            <div className="edit-name-actions">
+              <button className="edit-button" type="submit" disabled={isLoading}>
+                {isLoading ? "Saving..." : "Save"}
+              </button>
+
+              <button
+                className="edit-button"
+                type="button"
+                onClick={cancelEdit}
+                disabled={isLoading}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
       </div>
 
       <h2 className="sr-only">Accounts</h2>
