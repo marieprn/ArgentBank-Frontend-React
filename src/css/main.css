@@ -17,10 +17,6 @@ body {
   flex: 1;
 }
 
-.bg-dark {
-  background-color: #12002b;
-}
-
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
@@ -44,7 +40,7 @@ body {
 
 .main-nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #42b983;
 }
 
 .main-nav a.router-link-exact-active {
@@ -54,10 +50,15 @@ body {
 .main-nav-item {
   text-decoration: none;
   margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  color: #42b983;
 }
 
 .main-nav-item:hover {
-  text-decoration: underline;
+   border-bottom: 1px solid currentColor;
 }
 
 .main-nav-logo {
@@ -193,10 +194,6 @@ body {
   margin-bottom: 1rem;
 }
 
-.input-wrapper label {
-  font-weight: bold;
-}
-
 .input-wrapper input {
   padding: 5px;
   font-size: 1.2rem;
@@ -218,8 +215,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  background-color: #fff;
+  background-color: #302f2f;
+  color: white;
   width: 80%;
   margin: 0 auto;
   flex-direction: column;
@@ -256,24 +253,30 @@ body {
   background-color: #00bc77;
   color: #fff;
   font-weight: bold;
-  padding: 10px;
+  padding: 10px 60px;
+  border-radius: 5px;
 }
 
 .header {
   color: #fff;
   margin-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.header h1{
+  color: black;
+  font-weight: normal;
 }
 
 .transaction-button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  background: none;
+  border: none;
+  padding: 0;
   margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
   color: #fff;
+  cursor: pointer;
+  font-size: 90px;
 }
 
 .edit-name-form {
@@ -289,6 +292,45 @@ body {
 
 .error-text {
   color: red;
+  margin-top: 0.5rem;
+}
+.edit-user-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edit-user-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-user-form .input-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: black;
+}
+
+.edit-user-form input {
+  width: 100px;
+  padding: 6px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+}
+
+.edit-user-form input:disabled {
+  background: #e5e5e5;
+  color: #666;
+}
+
+.edit-user-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
   margin-top: 0.5rem;
 }
 

@@ -27,48 +27,76 @@ export default function User() {
   };
 
   return (
-    <div className="main bg-dark">
+    <div className="main">
       <div className="header">
-        <h1>
-          Welcome back
-          <br />
-          {user ? `${user.firstName} ${user.lastName} (${user.userName})!` : "User!"}
-        </h1>
-
         {!isEditing ? (
-          <button className="edit-button" type="button" onClick={openEdit}>
-            Edit Name
-          </button>
+          <>
+            <h1>
+              {user ? `${user.firstName} ${user.lastName}` : "User!"}
+            </h1>
+
+            <button className="edit-button" type="button" onClick={openEdit}>
+              Edit Name
+            </button>
+          </>
         ) : (
-          <form onSubmit={handleSubmit} className="edit-name-form">
-            <div className="input-wrapper">
-              <label htmlFor="userName">User name</label>
-              <input
-                id="userName"
-                type="text"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                required
-              />
-            </div>
+          <>
+            <h1>Edit user info</h1>
 
-            {error ? <p className="error-text">{error}</p> : null}
+            <form onSubmit={handleSubmit} className="edit-user-form">
+              <div className="edit-user-inputs">
+                <div className="input-wrapper">
+                  <label htmlFor="userName">User name:</label>
+                  <input
+                    id="userName"
+                    type="text"
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    required
+                  />
+                </div>
 
-            <div className="edit-name-actions">
-              <button className="edit-button" type="submit" disabled={isLoading}>
-                {isLoading ? "Saving..." : "Save"}
-              </button>
+                <div className="input-wrapper">
+                  <label htmlFor="firstName">First name:</label>
+                  <input
+                    id="firstName"
+                    type="text"
+                    value={user?.firstName || ""}
+                    disabled
+                    readOnly
+                  />
+                </div>
 
-              <button
-                className="edit-button"
-                type="button"
-                onClick={cancelEdit}
-                disabled={isLoading}
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+                <div className="input-wrapper">
+                  <label htmlFor="lastName">Last name:</label>
+                  <input
+                    id="lastName"
+                    type="text"
+                    value={user?.lastName || ""}
+                    disabled
+                    readOnly
+                  />
+                </div>
+              </div>
+
+              {error ? <p className="error-text">{error}</p> : null}
+
+              <div className="edit-user-actions">
+                <button className="edit-button" type="submit" disabled={isLoading}>
+                  {isLoading ? "Saving..." : "Save"}
+                </button>
+
+                <button
+                  className="edit-button"
+                  type="button"
+                  onClick={cancelEdit}
+                  disabled={isLoading}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </>
         )}
       </div>
 
@@ -82,7 +110,7 @@ export default function User() {
         </div>
         <div className="account-content-wrapper cta">
           <button className="transaction-button" type="button">
-            View transactions
+            <i className="fa fa-angle-right"></i>
           </button>
         </div>
       </section>
@@ -95,7 +123,7 @@ export default function User() {
         </div>
         <div className="account-content-wrapper cta">
           <button className="transaction-button" type="button">
-            View transactions
+            <i className="fa fa-angle-right"></i>
           </button>
         </div>
       </section>
@@ -108,7 +136,8 @@ export default function User() {
         </div>
         <div className="account-content-wrapper cta">
           <button className="transaction-button" type="button">
-            View transactions
+            <i className="fa fa-angle-right"></i>
+
           </button>
         </div>
       </section>
