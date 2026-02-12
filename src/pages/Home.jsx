@@ -1,6 +1,6 @@
-import iconChat from "../assets/img/icon-chat.png";
-import iconMoney from "../assets/img/icon-money.png";
-import iconSecurity from "../assets/img/icon-security.png";
+import iconChat from "../assets/imgModifie/icon-chat.webp";
+import iconMoney from "../assets/imgModifie/icon-money.webp";
+import iconSecurity from "../assets/imgModifie/icon-security.webp";
 
 export default function Home() {
   return (
