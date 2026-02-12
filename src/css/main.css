@@ -1,35 +1,75 @@
+/* =========================================================
+   Base / Reset
+   ========================================================= */
+
+:root {
+  --text: #2c3e50;
+  --brand: #42b983;
+  --accent: #00bc77;
+  --border: #ccc;
+  --dark: #222;
+  --account-bg: #302f2f;
+}
+
 html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--text);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100dvh; /* sticky footer mobile safe */
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* Visually hidden (accessibility) */
 .sr-only {
   border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  clip: rect(1px, 1px, 1px, 1px) !important;
   -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
+  clip-path: inset(50%) !important;
   height: 1px !important;
   margin: -1px !important;
   overflow: hidden !important;
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
-  white-space: nowrap !important; /* 3 */
+  white-space: nowrap !important;
 }
+
+/* =========================================================
+   Navigation
+   ========================================================= */
 
 .main-nav {
   display: flex;
@@ -40,25 +80,11 @@ body {
 
 .main-nav a {
   font-weight: bold;
-  color: #42b983;
+  color: var(--brand);
 }
 
 .main-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-.main-nav-item {
-  text-decoration: none;
-  margin-right: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  line-height: 1;
-  color: #42b983;
-}
-
-.main-nav-item:hover {
-   border-bottom: 1px solid currentColor;
+  color: var(--brand);
 }
 
 .main-nav-logo {
@@ -70,6 +96,24 @@ body {
   max-width: 100%;
   width: 200px;
 }
+
+.main-nav-item {
+  text-decoration: none;
+  margin-right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  color: var(--brand);
+}
+
+.main-nav-item:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
 
 .hero {
   background-image: url("../assets/img/bank-tree.jpeg");
@@ -124,6 +168,10 @@ body {
   }
 }
 
+/* =========================================================
+   Features
+   ========================================================= */
+
 .features {
   display: flex;
   flex-direction: column;
@@ -135,56 +183,38 @@ body {
   }
 }
 
-.feature-icon {
-  width: 100px;
-  border: 10px solid #00bc77;
-  border-radius: 50%;
-  padding: 1rem;
-}
-
 .feature-item {
   flex: 1;
   padding: 2.5rem;
 }
 
+.feature-icon {
+  width: 100px;
+  border: 10px solid var(--accent);
+  border-radius: 50%;
+  padding: 1rem;
+}
+
 .feature-item-title {
-  color: #222;
+  color: var(--dark);
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.sign-in-button {
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-}
+/* =========================================================
+   Sign in
+   ========================================================= */
 
 .sign-in-content {
-  box-sizing: border-box;
   background-color: white;
   width: 300px;
-  margin: 0 auto;
-  margin-top: 3rem;
+  margin: 3rem auto 0;
   padding: 2rem;
 }
 
 .sign-in-icon {
   font-size: 5rem;
-}
-
-.input-remember {
-  display: flex;
-}
-
-.input-remember label {
-  margin-left: 0.25rem;
 }
 
 .input-wrapper {
@@ -199,10 +229,34 @@ body {
   font-size: 1.2rem;
 }
 
+.input-remember {
+  display: flex;
+}
+
+.input-remember label {
+  margin-left: 0.25rem;
+}
+
+.sign-in-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: var(--accent);
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+
 .footer {
   display: flex;
   justify-content: center;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid var(--border);
   padding: 2rem 0 1.5rem;
 }
 
@@ -211,19 +265,44 @@ body {
   padding: 0;
 }
 
+/* =========================================================
+   Accounts / User page
+   ========================================================= */
+
+.header {
+  color: #fff;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+.header h1 {
+  color: black;
+  font-weight: normal;
+}
+
 .account {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #302f2f;
+  background-color: var(--account-bg);
   color: white;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   flex-direction: column;
   padding: 1.5rem;
-  box-sizing: border-box;
   text-align: left;
-  margin-bottom: 2rem;
+}
+
+.account-content-wrapper {
+  width: 100%;
+  flex: 1;
+}
+
+.account-title {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
 }
 
 .account-amount {
@@ -236,37 +315,13 @@ body {
   margin: 0;
 }
 
-.account-title {
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: normal;
-}
-
-.account-content-wrapper {
-  width: 100%;
-  flex: 1;
-}
-
 .edit-button {
-  border-color: #00bc77;
-  background-color: #00bc77;
+  border-color: var(--accent);
+  background-color: var(--accent);
   color: #fff;
   font-weight: bold;
   padding: 10px 60px;
   border-radius: 5px;
-}
-
-.header {
-  color: #fff;
-  margin-bottom: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.header h1{
-  color: black;
-  font-weight: normal;
 }
 
 .transaction-button {
@@ -278,6 +333,25 @@ body {
   cursor: pointer;
   font-size: 90px;
 }
+
+/* Desktop/tablet layout for accounts */
+@media (min-width: 720px) {
+  .account {
+    flex-direction: row;
+  }
+
+  .account-content-wrapper.cta {
+    flex: 0;
+  }
+
+  .transaction-button {
+    width: 200px;
+  }
+}
+
+/* =========================================================
+   Edit name / errors
+   ========================================================= */
 
 .edit-name-form {
   margin-top: 1rem;
@@ -294,6 +368,11 @@ body {
   color: red;
   margin-top: 0.5rem;
 }
+
+/* =========================================================
+   Edit user (profile)
+   ========================================================= */
+
 .edit-user-form {
   display: flex;
   flex-direction: column;
@@ -334,16 +413,115 @@ body {
   margin-top: 0.5rem;
 }
 
-@media (min-width: 720px) {
+/* =========================================================
+   Mobile improvements ONLY (keeps desktop visual)
+   - Nothing here affects >= 720px
+   ========================================================= */
+
+@media (max-width: 719px) {
+  .main-nav {
+    flex-wrap: wrap;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .main-nav-logo-image {
+    width: 140px;
+  }
+
+  .main-nav > div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .main-nav-item {
+    margin-right: 0;
+    padding: 4px 6px;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    height: 220px;
+    background-position: center;
+  }
+
+  .hero-content {
+    width: 90%;
+    max-width: 320px;
+    padding: 1.25rem;
+    top: 1rem;
+  }
+
+  .feature-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .feature-icon {
+    width: 80px;
+    border-width: 8px;
+  }
+
+  .sign-in-content {
+    width: 92%;
+    max-width: 360px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .input-wrapper input {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  /* Accounts layout mobile */
   .account {
     flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .account-content-wrapper {
+    width: auto;
+    flex: 1;
+    min-width: 0;
   }
 
   .account-content-wrapper.cta {
-    flex: 0;
+    width: auto;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto; /* verrouille le chevron à droite */
   }
 
   .transaction-button {
-    width: 200px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 3rem;
+  }
+
+  .account-amount {
+    font-size: 1.8rem;
+  }
+
+  /* Edit user */
+  .edit-user-form .input-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .edit-user-form input {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .edit-user-actions {
+    flex-wrap: wrap;
   }
 }
