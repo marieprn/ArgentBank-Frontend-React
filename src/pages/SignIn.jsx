@@ -18,7 +18,6 @@ export default function SignIn() {
     const res = await dispatch(login({ email, password }));
 
     if (login.fulfilled.match(res)) {
-      // ✅ persistance du token si "Remember me" coché
       if (rememberMe) {
         localStorage.setItem("token", res.payload);
       } else {

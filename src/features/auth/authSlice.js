@@ -45,7 +45,6 @@ export const fetchProfile = createAsyncThunk(
   }
 );
 
-// ✅ UPDATE USERNAME
 export const updateUserName = createAsyncThunk(
   "auth/updateUserName",
   async (userName, { getState, rejectWithValue }) => {
@@ -65,7 +64,7 @@ export const updateUserName = createAsyncThunk(
 
       if (!res.ok) return rejectWithValue(data?.message || "Update failed");
 
-      return data.body; // profil mis à jour renvoyé par l'API
+      return data.body;
     } catch {
       return rejectWithValue("Network error");
     }
