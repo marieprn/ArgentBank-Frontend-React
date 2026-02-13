@@ -1,7 +1,3 @@
-/* =========================================================
-   Base / Reset
-   ========================================================= */
-
 :root {
   --text: #2c3e50;
   --brand: #42b983;
@@ -31,7 +27,7 @@ html, body {
 
 body {
   margin: 0;
-  min-height: 100dvh; /* sticky footer mobile safe */
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -52,7 +48,6 @@ body {
   margin-top: auto;
 }
 
-/* Visually hidden (accessibility) */
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
@@ -66,10 +61,6 @@ body {
   width: 1px !important;
   white-space: nowrap !important;
 }
-
-/* =========================================================
-   Navigation
-   ========================================================= */
 
 .main-nav {
   display: flex;
@@ -110,10 +101,6 @@ body {
 .main-nav-item:hover {
   border-bottom: 1px solid currentColor;
 }
-
-/* =========================================================
-   Hero
-   ========================================================= */
 
 .hero {
   background-image: url("../assets/img/bank-tree.jpeg");
@@ -168,10 +155,6 @@ body {
   }
 }
 
-/* =========================================================
-   Features
-   ========================================================= */
-
 .features {
   display: flex;
   flex-direction: column;
@@ -201,10 +184,6 @@ body {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-
-/* =========================================================
-   Sign in
-   ========================================================= */
 
 .sign-in-content {
   background-color: white;
@@ -249,10 +228,6 @@ body {
   color: #fff;
 }
 
-/* =========================================================
-   Footer
-   ========================================================= */
-
 .footer {
   display: flex;
   justify-content: center;
@@ -264,10 +239,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* =========================================================
-   Accounts / User page
-   ========================================================= */
 
 .header {
   color: #fff;
@@ -334,7 +305,7 @@ body {
   font-size: 90px;
 }
 
-/* Desktop/tablet layout for accounts */
+
 @media (min-width: 720px) {
   .account {
     flex-direction: row;
@@ -348,10 +319,6 @@ body {
     width: 200px;
   }
 }
-
-/* =========================================================
-   Edit name / errors
-   ========================================================= */
 
 .edit-name-form {
   margin-top: 1rem;
@@ -368,10 +335,6 @@ body {
   color: red;
   margin-top: 0.5rem;
 }
-
-/* =========================================================
-   Edit user (profile)
-   ========================================================= */
 
 .edit-user-form {
   display: flex;
@@ -412,11 +375,6 @@ body {
   justify-content: center;
   margin-top: 0.5rem;
 }
-
-/* =========================================================
-   Mobile improvements ONLY (keeps desktop visual)
-   - Nothing here affects >= 720px
-   ========================================================= */
 
 @media (max-width: 719px) {
   .main-nav {
@@ -476,7 +434,6 @@ body {
     padding: 0.6rem;
   }
 
-  /* Accounts layout mobile */
   .account {
     flex-direction: row;
     align-items: center;
@@ -495,7 +452,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-left: auto; /* verrouille le chevron à droite */
+    margin-left: auto;
   }
 
   .transaction-button {
@@ -509,7 +466,6 @@ body {
     font-size: 1.8rem;
   }
 
-  /* Edit user */
   .edit-user-form .input-wrapper {
     flex-direction: column;
     align-items: flex-start;
